@@ -1,0 +1,51 @@
+
+def mo_ung_dung():
+    print("Người Dùng: Mở Ứng Dụng")
+    chon_hanh_dong()
+
+def chon_hanh_dong():
+    print("Người Dùng: Chọn Hành Động")
+    hanh_dong = input("Chọn (1: Đăng Nhập, 2: Đăng Ký): ")
+    
+    if hanh_dong == '1':
+        nhap_thong_tin_dang_nhap()
+    elif hanh_dong == '2':
+        dang_ky_tai_khoan()
+    else:
+        print("Hành động không hợp lệ!")
+        chon_hanh_dong()
+
+def nhap_thong_tin_dang_nhap():
+    print("Người Dùng: Nhập Thông Tin Đăng Nhập")
+    ten_dang_nhap = input("Tên Đăng Nhập: ")
+    mat_khau = input("Mật Khẩu: ")
+    
+    if he_thong_kiem_tra_dang_nhap(ten_dang_nhap, mat_khau):
+        truy_cap_bang_dieu_khien()
+    else:
+        hien_thi_thong_bao_loi()
+        nhap_thong_tin_dang_nhap()
+
+def he_thong_kiem_tra_dang_nhap(ten_dang_nhap, mat_khau):
+    print("Hệ Thống: Kiểm Tra Thông Tin Đăng Nhập")
+    return ten_dang_nhap == "admin" and mat_khau == "1234"
+
+def hien_thi_thong_bao_loi():
+    print("Hệ Thống: Sai Thông Tin. Hiển Thị Thông Báo Lỗi")
+
+def dang_ky_tai_khoan():
+    print("Người Dùng: Đăng Ký Tài Khoản Mới")
+    email = input("Nhập Email: ")
+    mat_khau = input("Nhập Mật Khẩu: ")
+    he_thong_tao_tai_khoan(email, mat_khau)
+
+def he_thong_tao_tai_khoan(email, mat_khau):
+    print(f"Hệ Thống: Tạo Tài Khoản Cho {email}")
+    print("Hệ Thống: Gửi Email Xác Nhận")
+    truy_cap_bang_dieu_khien()
+
+def truy_cap_bang_dieu_khien():
+    print("Người Dùng: Truy Cập Bảng Điều Khiển")
+
+# Chạy chương trình
+mo_ung_dung()
